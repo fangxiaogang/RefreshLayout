@@ -10,7 +10,8 @@
 *少废话，先看东西*
 
 
-![](http://onfkdy4l9.bkt.clouddn.com/333.gif)
+<img width="240" height=“320” src="http://onfkdy4l9.bkt.clouddn.com/333.gif"></img>
+
 
 ### 代码分析
 
