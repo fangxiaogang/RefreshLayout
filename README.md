@@ -67,7 +67,7 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
     }
 
     /**
-     * 状态改变时调用。在这里切换第三阶段的动画卖萌小人
+     * 状态改变时调用。
      * @param refreshLayout
      * @param oldState
      * @param newState
@@ -76,10 +76,14 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
     public void onStateChanged(RefreshLayout refreshLayout, RefreshState oldState, RefreshState newState) {
         switch (newState) {
             case PullDownToRefresh: //下拉刷新开始。正在下拉还没松手时调用
+                //每次重新下拉时，将图片资源重置
+                //mImage.setImageResource(R.drawable.commonui_pull_image);
                 mImage.setImageResource(R.mipmap.image);
                 tv_refresh_header.setText("下拉可以刷新");
                 break;
             case Refreshing: //正在刷新。只调用一次
+                //状态切换为正在刷新状态时
+//                mImage.setImageResource(R.drawable.anim_pull_refreshing);
                 mImage.setImageResource(R.drawable.refresh);
                 refreshingAnim = (AnimationDrawable) mImage.getDrawable();
                 tv_refresh_header.setText("正在刷新...");
@@ -92,7 +96,7 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
     }
 
     /**
-     * 下拉过程中不断调用此方法。第一阶段从小变大的小人头动画，和第二阶段翻跟头动画都在这里设置
+     * 下拉过程中不断调用此方法。
      */
     @Override
     public void onPullingDown(float percent, int offset, int headerHeight, int extendHeight) {
@@ -109,7 +113,7 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
             }
         }
 
-        //当下拉的高度达到Header高度100%时，开始加载正在下拉的初始动画，即翻跟头
+        //当下拉的高度达到Header高度100%时，开始加载
         if (percent >= 1.0) {
             if (!hasSetPullDownAnim) {
                 tv_refresh_header.setText("松开立即刷新...");
